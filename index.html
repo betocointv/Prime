@@ -955,62 +955,40 @@
       </div>
 
       <div class="appt-form fi" data-d="2">
-        <form id="bookForm">
-          <div class="f-row">
-            <div class="f-group">
-              <label>O seu Nome</label>
-              <input type="text" placeholder="Nome completo" required>
-            </div>
-            <div class="f-group">
-              <label>Telemóvel</label>
-              <input type="tel" placeholder="+351 9XX XXX XXX" required>
-            </div>
-          </div>
-          <div class="f-group">
-            <label>Serviço Pretendido</label>
-            <select required>
-              <option value="">Seleccione o serviço...</option>
-              <optgroup label="Cabelo">
-                <option>Corte de Cabelo</option>
-                <option>Coloração</option>
-                <option>Escova Progressiva</option>
-                <option>Alongamento</option>
-                <option>Hidratação Capilar</option>
-              </optgroup>
-              <optgroup label="Unhas">
-                <option>Manicure</option>
-                <option>Pedicure</option>
-                <option>Manicure + Pedicure</option>
-                <option>Gel / Shellac</option>
-              </optgroup>
-              <optgroup label="Sobrancelhas &amp; Depilação">
-                <option>Design de Sobrancelha</option>
-                <option>Depilação</option>
-              </optgroup>
-              <optgroup label="Rosto &amp; Corpo">
-                <option>Tratamento Facial</option>
-                <option>Massagem Relaxante</option>
-                <option>Tratamento Corporal</option>
-                <option>Ritual SPA Completo</option>
-              </optgroup>
-            </select>
-          </div>
-          <div class="f-row">
-            <div class="f-group">
-              <label>Data Preferida</label>
-              <input type="date" required>
-            </div>
-            <div class="f-group">
-              <label>Hora</label>
-              <input type="time">
-            </div>
-          </div>
-          <div class="f-group">
-            <label>Mensagem (opcional)</label>
-            <textarea placeholder="Alguma observação ou dúvida?"></textarea>
-          </div>
-          <button type="submit" class="btn btn-gold f-submit">Solicitar Marcação</button>
-        </form>
+        <h3 style="color:#fff;font-family:'Playfair Display',serif;font-size:22px;margin-bottom:10px;">Marcar Agora</h3>
+        <p style="color:rgba(255,255,255,.45);font-size:13px;margin-bottom:28px;line-height:1.7;">Escolha o serviço pretendido e será encaminhada directamente para o nosso WhatsApp.</p>
+        <div class="f-group">
+          <label>Serviço Pretendido</label>
+          <select id="svcSelect">
+            <option value="">Seleccione o serviço...</option>
+            <optgroup label="Cabelo">
+              <option>Corte de Cabelo</option>
+              <option>Coloração</option>
+              <option>Escova Progressiva</option>
+              <option>Alongamento</option>
+              <option>Hidratação Capilar</option>
+            </optgroup>
+            <optgroup label="Unhas">
+              <option>Manicure</option>
+              <option>Pedicure</option>
+              <option>Manicure + Pedicure</option>
+              <option>Gel / Shellac</option>
+            </optgroup>
+            <optgroup label="Sobrancelhas &amp; Depilação">
+              <option>Design de Sobrancelha</option>
+              <option>Depilação</option>
+            </optgroup>
+            <optgroup label="Rosto &amp; Corpo">
+              <option>Tratamento Facial</option>
+              <option>Massagem Relaxante</option>
+              <option>Tratamento Corporal</option>
+              <option>Ritual SPA Completo</option>
+            </optgroup>
+          </select>
+        </div>
+        <button onclick="bookWhatsApp()" class="btn btn-gold f-submit" style="margin-top:10px;">
+          <i class="fab fa-whatsapp" style="margin-right:8px;font-size:16px;"></i>Marcar via WhatsApp
+        </button>
       </div>
     </div>
   </div>
@@ -1112,14 +1090,15 @@
     });
   });
 
-  /* Form submit */
-  document.getElementById('bookForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const btn = this.querySelector('.f-submit');
-    btn.textContent = 'Enviado! Entraremos em contacto em breve ✓';
-    btn.style.background = '#4CAF50';
-    btn.disabled = true;
-  });
+  /* WhatsApp booking */
+  function bookWhatsApp() {
+    var svc = document.getElementById('svcSelect').value;
+    if (!svc) { alert('Por favor, seleccione um serviço.'); return; }
+    var hairServices = ['Corte de Cabelo','Coloração','Escova Progressiva','Alongamento','Hidratação Capilar'];
+    var number = hairServices.indexOf(svc) !== -1 ? '351962710674' : '351962710689';
+    var msg = encodeURIComponent('Olá, Gostaria de marcar um horário.');
+    window.open('https://wa.me/' + number + '?text=' + msg, '_blank');
+  }
 </script>
 </body>
 </html>
