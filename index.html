@@ -79,8 +79,8 @@
       display: flex; align-items: center; justify-content: space-between;
     }
     .logo-link { text-decoration: none; line-height: 1; }
-    .logo-main { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; color: var(--gold); letter-spacing: 13px; display: block; }
-    .logo-sub  { font-size: 8.5px; letter-spacing: 5px; color: rgba(255,255,255,.55); text-transform: uppercase; display: block; }
+    .logo-main { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; color: var(--gold); letter-spacing: 14px; margin-right: -14px; display: block; text-align: center; }
+    .logo-sub  { font-size: 8.5px; letter-spacing: 5px; margin-right: -5px; color: rgba(255,255,255,.55); text-transform: uppercase; display: block; text-align: center; }
 
     .nav-links { display: flex; list-style: none; gap: 32px; align-items: center; }
     .nav-links a {
@@ -187,7 +187,7 @@
 
     /* ════ EQUIPA ════ */
     #team { padding: var(--pad); background: var(--white); }
-    .team-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; margin-top: 10px; max-width: 780px; margin-left: auto; margin-right: auto; }
+    .team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; margin-top: 10px; }
 
     .team-card { text-align: center; }
     .team-photo-wrap { position: relative; overflow: hidden; margin-bottom: 22px; }
@@ -332,8 +332,8 @@
     /* ════ FOOTER ════ */
     #footer { background: #070707; padding: 68px 0 0; }
     .foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 50px; padding-bottom: 55px; }
-    .foot-logo-main { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--gold); letter-spacing: 13px; display: block; }
-    .foot-logo-sub  { font-size: 8px; letter-spacing: 5px; color: rgba(255,255,255,.35); text-transform: uppercase; display: block; margin-bottom: 20px; }
+    .foot-logo-main { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--gold); letter-spacing: 14px; margin-right: -14px; display: block; }
+    .foot-logo-sub  { font-size: 8px; letter-spacing: 5px; margin-right: -5px; color: rgba(255,255,255,.35); text-transform: uppercase; display: block; margin-bottom: 20px; }
     .foot-about { font-size: 13px; color: rgba(255,255,255,.38); line-height: 1.9; margin-bottom: 26px; }
     .foot-socials { display: flex; gap: 10px; }
     .foot-soc { width: 38px; height: 38px; border: 1px solid rgba(201,164,106,.28); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,.45); text-decoration: none; font-size: 14px; transition: all .3s; }
@@ -666,6 +666,32 @@
           <span class="team-tag">Escova Progressiva</span>
           <span class="team-tag">Alongamento</span>
           <span class="team-tag">Técnicas de Cor</span>
+        </div>
+      </div>
+
+      <div class="team-card fi" data-d="3">
+        <div class="team-photo-wrap">
+          <img src="fotos/Vanize Vasconcelos.jpg" alt="Vanize Vasconcelos">
+        </div>
+        <div class="team-name">Vanize Vasconcelos</div>
+        <div class="team-role">Podóloga · 8 Anos</div>
+        <div class="team-spec">
+          <span class="team-tag">Podologia</span>
+          <span class="team-tag">Cuidados dos Pés</span>
+          <span class="team-tag">Unhas dos Pés</span>
+        </div>
+      </div>
+
+      <div class="team-card fi" data-d="4">
+        <div class="team-photo-wrap">
+          <img src="fotos/Lurdes Magalhães.jpg" alt="Lurdes Magalhães">
+        </div>
+        <div class="team-name">Lurdes Magalhães</div>
+        <div class="team-role">Massoterapeuta</div>
+        <div class="team-spec">
+          <span class="team-tag">Massagem Relaxante</span>
+          <span class="team-tag">Massagem Terapêutica</span>
+          <span class="team-tag">Tratamento Corporal</span>
         </div>
       </div>
 
