@@ -1122,7 +1122,6 @@
 <div class="bio-overlay" id="bioOverlay">
   <div class="bio-modal">
     <button class="bio-close" onclick="closeBio()" aria-label="Fechar"><i class="fas fa-times"></i></button>
-    <img id="bioImg" src="" alt="">
     <div class="bio-modal-body">
       <div id="bioName" class="bio-modal-name"></div>
       <span id="bioRole" class="bio-modal-role"></span>
@@ -1206,8 +1205,6 @@
   function openBio(key) {
     const m = bioData[key];
     if (!m) return;
-    document.getElementById('bioImg').src        = m.img;
-    document.getElementById('bioImg').alt        = m.name;
     document.getElementById('bioName').textContent = m.name;
     document.getElementById('bioRole').textContent = m.role;
     document.getElementById('bioText').textContent = m.bio;
