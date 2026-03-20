@@ -196,20 +196,50 @@
     .team-card:hover .team-photo-wrap img { transform: scale(1.05); }
     .team-overlay {
       position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(201,164,106,.85) 0%, transparent 60%);
-      opacity: 0; transition: opacity .4s;
-      display: flex; align-items: flex-end; justify-content: center;
-      padding-bottom: 20px; gap: 12px;
-    }
-    .team-card:hover .team-overlay { opacity: 1; }
-    .team-soc {
-      width: 36px; height: 36px;
-      background: rgba(255,255,255,.2); border: 1px solid rgba(255,255,255,.6);
+      background: rgba(0,0,0,0);
+      opacity: 0; transition: background .35s, opacity .35s;
       display: flex; align-items: center; justify-content: center;
-      color: #fff; font-size: 14px; text-decoration: none;
-      transition: all .3s;
+      cursor: pointer; border: none; width: 100%; padding: 0;
     }
-    .team-soc:hover { background: #fff; color: var(--gold); }
+    .team-card:hover .team-overlay { opacity: 1; background: rgba(0,0,0,.5); }
+    .team-overlay-plus {
+      width: 54px; height: 54px;
+      border: 2px solid #fff;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-size: 24px;
+      transform: scale(.7); transition: transform .35s;
+    }
+    .team-card:hover .team-overlay-plus { transform: scale(1); }
+
+    /* ════ BIO MODAL ════ */
+    .bio-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,.78);
+      z-index: 9999; display: flex; align-items: center; justify-content: center;
+      padding: 20px; opacity: 0; pointer-events: none; transition: opacity .3s;
+    }
+    .bio-overlay.active { opacity: 1; pointer-events: all; }
+    .bio-modal {
+      background: var(--dark-2); border: 1px solid rgba(201,164,106,.25);
+      max-width: 460px; width: 100%; position: relative;
+      transform: translateY(24px); transition: transform .35s;
+    }
+    .bio-overlay.active .bio-modal { transform: translateY(0); }
+    .bio-modal-img { width: 100%; height: 300px; object-fit: cover; object-position: center top; display: block; }
+    .bio-modal-body { padding: 26px 30px 30px; }
+    .bio-modal-name { font-family: 'Playfair Display', serif; font-size: 21px; color: #fff; margin-bottom: 4px; }
+    .bio-modal-role { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; display: block; }
+    .bio-modal-text { font-size: 13px; color: rgba(255,255,255,.6); line-height: 1.95; }
+    .bio-modal-insta { display: inline-flex; align-items: center; gap: 8px; margin-top: 18px; color: var(--gold); font-size: 12px; letter-spacing: 1px; text-decoration: none; transition: color .3s; }
+    .bio-modal-insta:hover { color: #fff; }
+    .bio-modal-insta i { font-size: 15px; }
+    .bio-close {
+      position: absolute; top: 12px; right: 12px;
+      width: 32px; height: 32px; background: rgba(0,0,0,.6);
+      border: none; color: #fff; font-size: 16px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center; transition: background .3s;
+    }
+    .bio-close:hover { background: var(--gold); }
     .team-name { font-family: 'Playfair Display', serif; font-size: 19px; font-weight: 600; margin-bottom: 6px; }
     .team-role { font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
     .team-spec { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
@@ -639,9 +669,9 @@
       <div class="team-card fi" data-d="1">
         <div class="team-photo-wrap">
           <img src="fotos/leila2.jpg" alt="Leila Bárbara">
-          <div class="team-overlay">
-            <a href="https://www.instagram.com/euleilabarbara" target="_blank" class="team-soc"><i class="fab fa-instagram"></i></a>
-          </div>
+          <button class="team-overlay" onclick="openBio('leila')" aria-label="Ver bio de Leila Bárbara">
+            <span class="team-overlay-plus"><i class="fas fa-plus"></i></span>
+          </button>
         </div>
         <div class="team-name">Leila Bárbara</div>
         <div class="team-role">Esteticista · 30+ Anos</div>
@@ -656,9 +686,9 @@
       <div class="team-card fi" data-d="2">
         <div class="team-photo-wrap">
           <img src="serviços e valores/ivo.jpg" alt="Ivo Shinaider">
-          <div class="team-overlay">
-            <a href="https://www.instagram.com/studio_ivoshinaider/" target="_blank" class="team-soc"><i class="fab fa-instagram"></i></a>
-          </div>
+          <button class="team-overlay" onclick="openBio('ivo')" aria-label="Ver bio de Ivo Shinaider">
+            <span class="team-overlay-plus"><i class="fas fa-plus"></i></span>
+          </button>
         </div>
         <div class="team-name">Ivo Shinaider</div>
         <div class="team-role">Cabeleireiro · 30+ Anos</div>
@@ -673,6 +703,9 @@
       <div class="team-card fi" data-d="3">
         <div class="team-photo-wrap">
           <img src="fotos/Vanize Vasconcelos.jpg" alt="Vanize Vasconcelos">
+          <button class="team-overlay" onclick="openBio('vanize')" aria-label="Ver bio de Vanize Vasconcelos">
+            <span class="team-overlay-plus"><i class="fas fa-plus"></i></span>
+          </button>
         </div>
         <div class="team-name">Vanize Vasconcelos</div>
         <div class="team-role">Podóloga · 8 Anos</div>
@@ -686,6 +719,9 @@
       <div class="team-card fi" data-d="4">
         <div class="team-photo-wrap">
           <img src="fotos/Lurdes Magalhães.jpg" alt="Lurdes Magalhães">
+          <button class="team-overlay" onclick="openBio('lurdes')" aria-label="Ver bio de Lurdes Magalhães">
+            <span class="team-overlay-plus"><i class="fas fa-plus"></i></span>
+          </button>
         </div>
         <div class="team-name">Lurdes Magalhães</div>
         <div class="team-role">Massoterapeuta</div>
@@ -1082,6 +1118,22 @@
   </div>
 </footer>
 
+<!-- ════ BIO MODAL ════ -->
+<div class="bio-overlay" id="bioOverlay">
+  <div class="bio-modal">
+    <button class="bio-close" onclick="closeBio()" aria-label="Fechar"><i class="fas fa-times"></i></button>
+    <img id="bioImg" src="" alt="">
+    <div class="bio-modal-body">
+      <div id="bioName" class="bio-modal-name"></div>
+      <span id="bioRole" class="bio-modal-role"></span>
+      <p id="bioText" class="bio-modal-text"></p>
+      <a id="bioInsta" href="#" target="_blank" class="bio-modal-insta" style="display:none">
+        <i class="fab fa-instagram"></i><span></span>
+      </a>
+    </div>
+  </div>
+</div>
+
 <script>
   /* Navbar scroll */
   const navbar = document.getElementById('navbar');
@@ -1115,6 +1167,73 @@
       const t = document.querySelector(this.getAttribute('href'));
       if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
     });
+  });
+
+  /* Bio Modal */
+  const bioData = {
+    leila: {
+      img: 'fotos/leila2.jpg',
+      name: 'Leila Bárbara',
+      role: 'Esteticista · 30+ Anos',
+      bio: 'Com mais de 30 anos de experiência em estética, Leila Bárbara é a fundadora e alma do Primer. Especialista em tratamentos faciais, corporais e técnicas avançadas de bem-estar, é reconhecida pelo seu toque delicado e pelos resultados que transformam. Formada em Portugal e com actualizações regulares nas últimas tendências do sector, Leila dedica cada sessão com total atenção e carinho.',
+      insta: 'https://www.instagram.com/euleilabarbara',
+      instaHandle: '@euleilabarbara'
+    },
+    ivo: {
+      img: 'serviços e valores/ivo.jpg',
+      name: 'Ivo Shinaider',
+      role: 'Cabeleireiro · 30+ Anos',
+      bio: 'Sempre tive a beleza e a arte no sangue. Cresci no Rio de Janeiro, entre cores, ritmos e aquela energia única que só os cariocas têm. Descobri cedo que o que mais me fascinava era transformar o cabelo das pessoas, realçar a sua essência e mostrar o melhor de cada uma. Ao longo de mais de 30 anos, aprendi técnicas de excelência — balayage, alisamentos, terapias capilares — e trouxe comigo na mala do Brasil o melhor da tradição e inovação. Cada corte, cada coloração, cada tratamento é pensado para realçar a sua beleza com precisão e sofisticação. Quando a cliente se senta na minha cadeira, sei que não é só cabelo que estou a tocar — é confiança, auto-estima e estilo. É ali que me sinto no meu elemento, fazendo o que amo: transformar desejos em realidade com profissionalismo e paixão.',
+      insta: 'https://www.instagram.com/studio_ivoshinaider/',
+      instaHandle: '@studio_ivoshinaider'
+    },
+    vanize: {
+      img: 'fotos/Vanize Vasconcelos.jpg',
+      name: 'Vanize Vasconcelos',
+      role: 'Podóloga · 8 Anos',
+      bio: 'Vanize Vasconcelos é podóloga com 8 anos de experiência dedicados à saúde e bem-estar dos pés. Com formação especializada e instrumentos profissionais certificados, oferece tratamentos que combinam saúde, higiene e estética. O seu cuidado e atenção aos detalhes fazem de cada sessão uma experiência de alívio e renovação.',
+      insta: null
+    },
+    lurdes: {
+      img: 'fotos/Lurdes Magalhães.jpg',
+      name: 'Lurdes Magalhães',
+      role: 'Massoterapeuta',
+      bio: 'Lurdes Magalhães é massoterapeuta especializada em técnicas de relaxamento e terapia corporal. Com mãos habilidosas e um dom natural para aliviar tensões, proporciona sessões que restauram o equilíbrio físico e mental. Cada massagem com Lurdes é um convite ao descanso profundo e à reconexão com o próprio corpo.',
+      insta: null
+    }
+  };
+
+  function openBio(key) {
+    const m = bioData[key];
+    if (!m) return;
+    document.getElementById('bioImg').src        = m.img;
+    document.getElementById('bioImg').alt        = m.name;
+    document.getElementById('bioName').textContent = m.name;
+    document.getElementById('bioRole').textContent = m.role;
+    document.getElementById('bioText').textContent = m.bio;
+    const instaEl = document.getElementById('bioInsta');
+    if (m.insta) {
+      instaEl.href = m.insta;
+      instaEl.querySelector('span').textContent = m.instaHandle;
+      instaEl.style.display = 'inline-flex';
+    } else {
+      instaEl.style.display = 'none';
+    }
+    document.getElementById('bioOverlay').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeBio() {
+    document.getElementById('bioOverlay').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  document.getElementById('bioOverlay').addEventListener('click', function(e) {
+    if (e.target === this) closeBio();
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeBio();
   });
 
   /* WhatsApp booking */
