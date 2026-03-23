@@ -11,9 +11,9 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --gold:       #C9A46A;
-      --gold-2:     #a8823f;
-      --gold-light: #f2e4cb;
+      --gold:       #93a889;
+      --gold-2:     #6d8a64;
+      --gold-light: #d4e0d0;
       --dark:       #0d0d0d;
       --dark-2:     #181818;
       --cream:      #faf8f5;
@@ -56,7 +56,7 @@
       border: none; transition: all .3s ease;
     }
     .btn-gold { background: var(--gold); color: #fff; }
-    .btn-gold:hover { background: var(--gold-2); transform: translateY(-2px); box-shadow: 0 10px 28px rgba(201,164,106,.4); }
+    .btn-gold:hover { background: var(--gold-2); transform: translateY(-2px); box-shadow: 0 10px 28px rgba(147,168,137,.4); }
     .btn-outline-gold { background: transparent; color: var(--gold); border: 2px solid var(--gold); }
     .btn-outline-gold:hover { background: var(--gold); color: #fff; }
     .btn-outline-white { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,.6); }
@@ -138,7 +138,7 @@
     /* ════ STATS ════ */
     #stats { background: var(--dark); padding: 54px 0; }
     .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
-    .stat-item { text-align: center; padding: 20px; border-right: 1px solid rgba(201,164,106,.18); }
+    .stat-item { text-align: center; padding: 20px; border-right: 1px solid rgba(147,168,137,.18); }
     .stat-item:last-child { border-right: none; }
     .stat-n { font-family: 'Playfair Display', serif; font-size: 50px; font-weight: 700; color: var(--gold); line-height: 1; display: block; }
     .stat-l { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(255,255,255,.4); margin-top: 9px; display: block; }
@@ -167,7 +167,7 @@
     .svc-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; margin-top: 10px; }
     .svc-card { padding: 36px 22px; text-align: center; border: 1px solid #ece5d8; transition: all .4s ease; cursor: default; }
     .svc-card:hover { background: var(--dark); border-color: var(--gold); transform: translateY(-10px); box-shadow: 0 24px 48px rgba(0,0,0,.12); }
-    .svc-card:hover .svc-icon { color: var(--gold); background: rgba(201,164,106,.12); }
+    .svc-card:hover .svc-icon { color: var(--gold); background: rgba(147,168,137,.12); }
     .svc-card:hover .svc-name { color: #fff; }
     .svc-card:hover .svc-desc { color: rgba(255,255,255,.55); }
     .svc-icon { width: 66px; height: 66px; border-radius: 50%; background: var(--cream); display: flex; align-items: center; justify-content: center; margin: 0 auto 22px; font-size: 24px; color: var(--gold-2); transition: all .4s; }
@@ -220,7 +220,7 @@
     }
     .bio-overlay.active { opacity: 1; pointer-events: all; }
     .bio-modal {
-      background: var(--dark-2); border: 1px solid rgba(201,164,106,.25);
+      background: var(--dark-2); border: 1px solid rgba(147,168,137,.25);
       max-width: 460px; width: 100%; position: relative;
       transform: translateY(24px); transition: transform .35s;
     }
@@ -269,7 +269,7 @@
 
     table.ptable { width: 100%; border-collapse: collapse; }
     table.ptable tr { transition: background .2s; }
-    table.ptable tr:hover { background: rgba(201,164,106,.07); }
+    table.ptable tr:hover { background: rgba(147,168,137,.07); }
     table.ptable td {
       padding: 15px 24px;
       font-size: 14px;
@@ -295,7 +295,7 @@
     /* tabela com colunas de tamanho */
     table.ptable-4 { width: 100%; border-collapse: collapse; }
     table.ptable-4 tr { transition: background .2s; }
-    table.ptable-4 tr:hover { background: rgba(201,164,106,.07); }
+    table.ptable-4 tr:hover { background: rgba(147,168,137,.07); }
     table.ptable-4 td {
       padding: 13px 16px;
       font-size: 14px;
@@ -306,7 +306,7 @@
     table.ptable-4 tr:last-child td { border-bottom: none; }
     table.ptable-4 td.svc-n { color: var(--text); font-weight: 500; }
     .ptable-head td {
-      background: rgba(201,164,106,.12) !important;
+      background: rgba(147,168,137,.12) !important;
       font-size: 10px; letter-spacing: 2.5px;
       text-transform: uppercase; color: var(--gold-2) !important;
       font-weight: 700; padding: 10px 16px !important;
@@ -347,10 +347,10 @@
     .appt-info h3 { font-size: 22px; color: #fff; margin-bottom: 28px; font-family: 'Playfair Display', serif; }
     .cinfo { display: flex; flex-direction: column; gap: 22px; }
     .ci { display: flex; gap: 16px; align-items: flex-start; }
-    .ci-ico { width: 46px; height: 46px; border: 1px solid rgba(201,164,106,.5); display: flex; align-items: center; justify-content: center; color: var(--gold); flex-shrink: 0; font-size: 16px; }
+    .ci-ico { width: 46px; height: 46px; border: 1px solid rgba(147,168,137,.5); display: flex; align-items: center; justify-content: center; color: var(--gold); flex-shrink: 0; font-size: 16px; }
     .ci-txt strong { display: block; color: #fff; font-size: 13px; margin-bottom: 5px; }
     .ci-txt span   { font-size: 13px; color: rgba(255,255,255,.45); line-height: 1.7; }
-    .appt-form { background: rgba(255,255,255,.03); border: 1px solid rgba(201,164,106,.18); padding: 42px; }
+    .appt-form { background: rgba(255,255,255,.03); border: 1px solid rgba(147,168,137,.18); padding: 42px; }
     .f-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
     .f-group { margin-bottom: 16px; }
     .f-group label { display: block; font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(255,255,255,.4); margin-bottom: 8px; }
@@ -367,7 +367,7 @@
     .foot-logo-sub  { font-size: 8px; letter-spacing: 5px; margin-right: -5px; margin-top: 6px; color: rgba(255,255,255,.35); text-transform: uppercase; display: block; margin-bottom: 20px; }
     .foot-about { font-size: 13px; color: rgba(255,255,255,.38); line-height: 1.9; margin-bottom: 26px; }
     .foot-socials { display: flex; gap: 10px; }
-    .foot-soc { width: 38px; height: 38px; border: 1px solid rgba(201,164,106,.28); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,.45); text-decoration: none; font-size: 14px; transition: all .3s; }
+    .foot-soc { width: 38px; height: 38px; border: 1px solid rgba(147,168,137,.28); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,.45); text-decoration: none; font-size: 14px; transition: all .3s; }
     .foot-soc:hover { background: var(--gold); border-color: var(--gold); color: #fff; }
     .foot-h { font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: #fff; margin-bottom: 24px; }
     .foot-ul { list-style: none; display: flex; flex-direction: column; gap: 13px; }
