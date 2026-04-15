@@ -998,27 +998,59 @@
           <select id="svcSelect">
             <option value="">Seleccione o serviço...</option>
             <optgroup label="Cabelo">
-              <option>Corte de Cabelo</option>
-              <option>Coloração</option>
-              <option>Escova Progressiva</option>
-              <option>Alongamento</option>
-              <option>Hidratação Capilar</option>
+              <option>Corte com Brushing</option>
+              <option>Só o Corte</option>
+              <option>Franja</option>
+              <option>Brushing</option>
+              <option>Tinta / Coloração</option>
+              <option>Madeixas / Luzes</option>
+              <option>Progressiva / Botox</option>
+              <option>Nutrição Capilar</option>
             </optgroup>
-            <optgroup label="Unhas">
-              <option>Manicure</option>
-              <option>Pedicure</option>
-              <option>Manicure + Pedicure</option>
-              <option>Gel / Shellac</option>
+            <optgroup label="Manicure &amp; Unhas">
+              <option>Manicure Simples — Mão</option>
+              <option>Manicure Simples — Pé</option>
+              <option>Pedicure Completo c/ Verniz</option>
+              <option>Manicure Gelinho — Mão</option>
+              <option>Manicure Gelinho — Pé</option>
+              <option>Extensão em Gel</option>
+              <option>Manutenção de Gel</option>
+              <option>Extensão de Acrílico</option>
+              <option>Manutenção de Acrílico</option>
+              <option>Nail Art</option>
             </optgroup>
-            <optgroup label="Sobrancelhas &amp; Depilação">
-              <option>Design de Sobrancelha</option>
-              <option>Depilação</option>
+            <optgroup label="Sobrancelhas">
+              <option>Design de Sobrancelhas</option>
+              <option>Design com Henna</option>
+              <option>Brow Lamination</option>
+              <option>Brow Lamination c/ Tintura ou Henna</option>
             </optgroup>
-            <optgroup label="Rosto &amp; Corpo">
-              <option>Tratamento Facial</option>
+            <optgroup label="Massagens &amp; Corporais">
+              <option>Massagem Terapêutica</option>
+              <option>Massagem Modeladora</option>
               <option>Massagem Relaxante</option>
-              <option>Tratamento Corporal</option>
-              <option>Ritual SPA Completo</option>
+              <option>Drenagem Linfática</option>
+            </optgroup>
+            <optgroup label="Depilação — Cera">
+              <option>Depilação a Cera — Mulher</option>
+              <option>Depilação a Cera — Homem</option>
+            </optgroup>
+            <optgroup label="Depilação — Laser">
+              <option>Depilação a Laser — Por Área</option>
+              <option>Depilação a Laser — Corpo Inteiro Mulher</option>
+              <option>Depilação a Laser — Corpo Inteiro Homem</option>
+            </optgroup>
+            <optgroup label="Estética Avançada">
+              <option>Caneta Pressurizada / Lipo sem Corte</option>
+              <option>Skinbooster</option>
+              <option>Limpeza de Pele</option>
+              <option>Microagulhamento</option>
+              <option>Rádio Frequência</option>
+              <option>Jato de Plasma</option>
+            </optgroup>
+            <optgroup label="Maquiagem">
+              <option>Maquiagem — Festa</option>
+              <option>Maquiagem — Leve</option>
             </optgroup>
           </select>
         </div>
@@ -1211,7 +1243,7 @@
   function bookWhatsApp() {
     var svc = document.getElementById('svcSelect').value;
     if (!svc) { alert('Por favor, seleccione um serviço.'); return; }
-    var hairServices = ['Corte de Cabelo','Coloração','Escova Progressiva','Alongamento','Hidratação Capilar'];
+    var hairServices = ['Corte com Brushing','Só o Corte','Franja','Brushing','Tinta / Coloração','Madeixas / Luzes','Progressiva / Botox','Nutrição Capilar'];
     var number = hairServices.indexOf(svc) !== -1 ? '351962710674' : '351962710689';
     var msg = encodeURIComponent('Olá, Gostaria de marcar um horário.');
     window.open('https://wa.me/' + number + '?text=' + msg, '_blank');
